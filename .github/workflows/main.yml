@@ -24,6 +24,7 @@ jobs:
         uses: actions/setup-java@v3.10.0
         with:
           java-version: 14
+          distribution: jdk
           
       - name: Cache Maven Package.
         uses: actions/cache@v3.2.4
@@ -44,6 +45,7 @@ jobs:
       - uses: actions/setup-java@v3.10.0
         with:
           java-version: 14
+          distribution: jdk
       - run: mvn -B package --file pom.xml -DskipsTest
       - run: mkdir staging && cp target/*jar-with-dependencies.jar staging
       - uses: actions/upload-artifact@v3.1.2
